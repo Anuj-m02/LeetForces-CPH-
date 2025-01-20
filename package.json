@@ -1,0 +1,105 @@
+{
+  "name": "leetforces",
+  "displayName": "LeetForces",
+  "description": "Fetch test cases from LeetCode and enables users to test their solutions against the expected output in multiple programming languages.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:leetcode.fetchTestCases",
+    "onCommand:leetcode.manageTestCases",
+    "onCommand:leetcode.runCompiler"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+        "configuration": {
+          "type": "object",
+          "title": "LeetForces Settings",
+          "properties": {
+            "leetforces.language.cpp.compile": {
+              "type": "string",
+              "default": "g++ -std=c++17 -o $fileNameWithoutExt $fileName",
+              "description": "Command to compile C++ files. Variables: $fileName (full path), $fileNameWithoutExt (path without extension)."
+            },
+            "leetforces.language.cpp.run": {
+              "type": "string",
+              "default": "./$fileNameWithoutExt",
+              "description": "Command to run C++ files after compilation."
+            },
+            "leetforces.language.python.run": {
+              "type": "string",
+              "default": "python $fileName",
+              "description": "Command to run Python files. Variables: $fileName (full path)."
+            }
+          }
+        }
+
+
+    ,"commands": [
+      {
+        "command": "leetcode.showGUI",
+        "title": "LeetForces Open GUI"
+      },
+      {
+        "command": "leetforces.openSolution",
+        "title": "LeetForces Open Solution"
+      },
+      {
+        "command": "leetcode.writeSolution",
+        "title": "Write Solution"
+      },
+      {
+        "command": "leetcode.runSolution",
+        "title": "LeetForces Run Solution"
+      },
+      {
+        "command": "leetcode.fetchTestCases",
+        "title": "Fetch LeetCode Test Cases"
+      },
+      {
+        "command": "leetcode.manageTestCases",
+        "title": "Manage LeetCode Test Cases"
+      },
+      {
+        "command": "leetcode.runCompiler",
+        "title": "Run Code Against Test Cases"
+      }
+    ]
+  },
+  "files": [
+    "src/parse.py",
+    "test_cases/input_1.txt"
+]
+,
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "esbuild": "^0.24.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.7.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
