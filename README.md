@@ -2,6 +2,12 @@
 
 This is the README for your extension "leetforces". After writing up a brief description, we recommend including the following sections.
 
+LeetForces
+LeetForces is a VSCode extension designed to help users fetch, manage, and test LeetCode problems using Python or C++. The extension allows users to fetch test cases from LeetCode by URL, store them in a designated folder, and run their solutions against these test cases.
+
+Project Description
+LeetForces fetches test cases from LeetCode through the problem URL and stores them in the test cases folder. Afterward, you can write and run Python or C++ solutions against the fetched inputs, compare expected and actual outputs, and refine your solutions accordingly. 
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
@@ -12,9 +18,35 @@ For example if there is an image subfolder under your extension project workspac
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
+Usage
+Fetch Test Cases
+Run the fetch command to fetch test cases from a LeetCode problem by entering the problem URL.
+The test cases will be stored in the test_cases folder.
+Manage Test Cases
+Use the manage command to edit, view, add, or remove test cases.
+Write Solution
+Use the write solution command to write your solution in either Python or C++.
+The solution will be written under the appropriate template in the respective file.
+Run Solution
+Run your solution using the run solution command.
+The command will execute your solution against the fetched test cases and show the expected and actual outputs for comparison.
+
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+
+Installation Instructions
+Before you begin, make sure to have the following installed:
+
+Python (latest version)
+C++ Compiler (such as GCC or Clang)
+Required Python Modules:
+ast
+selenium
+(Other modules as required, list them here)
+NPM Packages:
+(List all NPM packages required here)
+Chromedriver (for Selenium)
 
 ## Extension Settings
 
