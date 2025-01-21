@@ -1,7 +1,10 @@
+import bisect
 from collections import defaultdict, deque
 import collections
+import heapq
 import math
 import os
+import random
 import string
 import sys
 import ast
@@ -37,6 +40,11 @@ def execute_python(solution_file, inputs):
             "defaultdict": defaultdict,
             "deque": deque,
             "math": math,
+            "bisect":bisect,
+            "heapq":heapq,
+            "random":random,
+
+        ## ADD MORE IF REQUIRED ##
         }
 
         # Dynamically load the code and execute the `solve` function

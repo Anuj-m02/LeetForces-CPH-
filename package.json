@@ -41,14 +41,6 @@
 
     ,"commands": [
       {
-        "command": "leetcode.showGUI",
-        "title": "LeetForces Open GUI"
-      },
-      {
-        "command": "leetforces.openSolution",
-        "title": "LeetForces Open Solution"
-      },
-      {
         "command": "leetcode.writeSolution",
         "title": "Write Solution"
       },
@@ -63,10 +55,6 @@
       {
         "command": "leetcode.manageTestCases",
         "title": "Manage LeetCode Test Cases"
-      },
-      {
-        "command": "leetcode.runCompiler",
-        "title": "Run Code Against Test Cases"
       }
     ]
   },

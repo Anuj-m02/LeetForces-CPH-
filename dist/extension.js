@@ -45,83 +45,6 @@ function logMessage(outputChannel, message) {
 function activate(context) {
   const outputChannel = vscode.window.createOutputChannel("LeetForces");
   logMessage(outputChannel, "LeetForces Extension Activated");
-  const showGUICommand = vscode.commands.registerCommand("leetcode.showGUI", async () => {
-    const panel = vscode.window.createWebviewPanel(
-      "leetforcesGUI",
-      // Internal identifier for the Webview
-      "LeetForces GUI",
-      // Title of the Webview panel
-      vscode.ViewColumn.One,
-      // Show it in the first editor column
-      { enableScripts: true }
-      // Allow scripts in the Webview
-    );
-    panel.webview.html = getWebviewContent();
-  });
-  function getWebviewContent() {
-    return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>LeetForces GUI</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 0;
-                }
-                header {
-                    background-color:rgb(204, 102, 0);
-                    color: white;
-                    padding: 10px;
-                    text-align: center;
-                }
-                main {
-                    padding: 20px;
-                }
-                button {
-                    background-color: #007acc;
-                    color: white;
-                    border: none;
-                    padding: 10px 20px;
-                    cursor: pointer;
-                    border-radius: 4px;
-                }
-                button:hover {
-                    background-color:rgb(4, 202, 120);
-                }
-            </style>
-        </head>
-        <body>
-            <header>
-                <h1>LeetForces Control Panel</h1>
-            </header>
-            <main>
-                <button id="fetchTestCases">Fetch Test Cases</button>
-                <button id="runSolution">Run Solution</button>
-                <button id="manageTestCases">Manage Test Cases</button>
-            </main>
-            <script>
-                const vscode = acquireVsCodeApi();
-    
-                document.getElementById('fetchTestCases').addEventListener('click', () => {
-                    vscode.postMessage({ command: 'fetchTestCases' });
-                });
-    
-                document.getElementById('runSolution').addEventListener('click', () => {
-                    vscode.postMessage({ command: 'runSolution' });
-                });
-    
-                document.getElementById('manageTestCases').addEventListener('click', () => {
-                    vscode.postMessage({ command: 'manageTestCases' });
-                });
-            </script>
-        </body>
-        </html>
-        `;
-  }
   const fetchTestCasesCommand = vscode.commands.registerCommand("leetcode.fetchTestCases", async () => {
     const url = await vscode.window.showInputBox({ prompt: "Enter LeetCode problem URL" });
     if (!url) {
@@ -285,6 +208,12 @@ function activate(context) {
         if (cppType === "string") {
           return "str";
         }
+        if (cppType === "vector<bool>") {
+          return "list[bool]";
+        }
+        if (cppType === "double") {
+          return "float";
+        }
         return cppType;
       };
       const convertTypeForCpp = (cppType) => {
@@ -304,11 +233,6 @@ function activate(context) {
       const cppReturnType = convertTypeForCpp(outputType);
       const templates = {
         python: `
-    # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
 class Solution:
     def solve(self, ${pythonArgs}) -> ${pythonReturnType}:
             # Write your solution logic here
@@ -319,6 +243,7 @@ class Solution:
 #include <string>
 #include <algorithm>
 #include <sstream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
