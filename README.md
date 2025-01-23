@@ -1,103 +1,112 @@
-# leetforces README
 
-This is the README for your extension "leetforces". After writing up a brief description, we recommend including the following sections.
+# LeetForces CPH Extension
 
-LeetForces
-LeetForces is a VSCode extension designed to help users fetch, manage, and test LeetCode problems using Python or C++. The extension allows users to fetch test cases from LeetCode by URL, store them in a designated folder, and run their solutions against these test cases.
+This Extension is used to fecth leetcode test cases by just entering the url of the problem link then the user can run his/her solution (python/cpp) against those fetched test cases by writing his solution in the provided solution template and can compare the expected and actual outputs.
 
-Project Description
-LeetForces fetches test cases from LeetCode through the problem URL and stores them in the test cases folder. Afterward, you can write and run Python or C++ solutions against the fetched inputs, compare expected and actual outputs, and refine your solutions accordingly. 
+
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Easily scraps the leetcode webpage to fetch test cases
+- Option to Manage the test cases such as view,edit,remove and add test cases 
+- Test cases are saved in the respective test_cases named folder in the directory
+- Users can write solution in python and cpp easily.
+- Compares the user's solution output and the fetched test cases output
+- Proper erros and clean dailog boxes shown for any information
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+## Installation
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Follow these steps to set up the project on your local machine: 
 
-Usage
-Fetch Test Cases
-Run the fetch command to fetch test cases from a LeetCode problem by entering the problem URL.
-The test cases will be stored in the test_cases folder.
-Manage Test Cases
-Use the manage command to edit, view, add, or remove test cases.
-Write Solution
-Use the write solution command to write your solution in either Python or C++.
-The solution will be written under the appropriate template in the respective file.
-Run Solution
-Run your solution using the run solution command.
-The command will execute your solution against the fetched test cases and show the expected and actual outputs for comparison.
+1. Prerequisites
+Before you begin, ensure you have the following installed on your machine:
 
-## Requirements
+- Python (3.8 or higher)
+- Node.js (14.x or higher) and npm (Node Package Manager)
+- g++ or any C++ compiler for running C++ files
+- Google Chrome (for Selenium automation)
+- Chromedriver (compatible with your Chrome version)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+2. Install Python Dependencies
+Install the required Python modules. Run the following command:
 
-Installation Instructions
-Before you begin, make sure to have the following installed:
+```bash
+pip install ast selenium
+```
+3. Install Node.js Packages
+Navigate to the project directory and install the required npm packages:
 
-Python (latest version)
-C++ Compiler (such as GCC or Clang)
-Required Python Modules:
-ast
-selenium
-(Other modules as required, list them here)
-NPM Packages:
-(List all NPM packages required here)
-Chromedriver (for Selenium)
+```bash
+npm install
+```
 
-## Extension Settings
+4. Download Chromedriver
+- Identify your Google Chrome version:
+- Open Chrome.
+- Navigate to chrome://settings/help to find the version.
+- Download the matching Chromedriver version:
+- Go to Chromedriver Downloads.
+- Download the driver matching your Chrome version and operating system.
+- Add Chromedriver to your system's PATH:
+- Move the downloaded Chromedriver file to a directory included in your system PATH.
+- Alternatively, keep it in your project directory and update its path in your scripts.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+5. Set Up the Project
+- Clone the repository:
+```bash
+git clone https://github.com/Anuj-m02/Leetforces-CPH-.git
+```
+- Navigate to the project directory:
+```bash
+cd Leetforces-CPH-
+```
+6. Run the Extension
+- Launch Visual Studio Code.
+- Open the project directory.
+- Press F5 or run the project as a VScode extension to start using the commands by pressing Ctrl+Shift+P which opens the command pallete.
+## Ensure
+- Ensure selenium and all other modules are installed properly .
+- Ensure you have added the correct chromedriver path here.
+![App Screenshot](https://github.com/user-attachments/assets/ffa22cb1-5c86-4739-80fc-24fbf40d4a09)
 
-For example:
+- In the extension.ts file just ensure everything is imported rightly and user will write his code in the provided Solution Class Template same as of Leetcode ...
+![App ScreenShot](https://github.com/user-attachments/assets/83e39b92-2016-4e41-af94-d30760147ce3)
 
-This extension contributes the following settings:
+## Usage 
+- Press F5 to launch the extension in a new Extension Development Host window.
+- Use the following commands available in the Command Palette (Ctrl + Shift + P):
+1. Fetch LeetCode Test Cases
+- Open the desired LeetCode problem in your VS Code workspace.
+- Run the <mark>Fetch LeetCode Test Cases </mark> command from the Command Palette.
+- Enter the LeetCode problem URL in the input prompt.
+- The extension will fetch the problem's test cases and save them in a testCase folder in your workspace directory.
+- Input Files: Saved as input_X.txt, where X is the test case number.
+- Output Files: Saved as output_X.txt, containing the expected outputs.
+2. Manage LeetCode Test Cases
+- Use the `Manage LeetCode Test Cases` command to organize or modify the test cases stored in the testCase folder.
+- You can add, delete, or update test cases as needed directly within this folder to refine your testing process.
+3. Write Solution
+- Run the `Write Solution` command to generate a boilerplate file for solving a LeetCode problem.
+- This will create a solution template file in your workspace, preconfigured with the necessary setup to begin coding.
+4. LeetForces Run Solution
+- After fetching the test cases and writing your solution:
+Run the `LeetForces Run Solution` command from the Command Palette.
+- The extension will execute your code with the fetched test cases.
+- It will compare your solution’s output with the expected output and display the results in the terminal.
+  
+## Demo Video
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+![Leetforces demo video](https://github.com/user-attachments/assets/a1782dda-54ec-4ba3-b908-8454f13e137f)
 
-## Known Issues
+- File Selection Menu wasnt recorded (gif length :(  issue... ) , though a dialog box will open for the user to select the solution file...  
+## Commands
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- `Write Solution` : Generates a boilerplate file for solving a LeetCode problem in your workspace, helping you get started with your solution.
 
-## Release Notes
+- `Fetch LeetCode Test Cases` : Prompts the user for a LeetCode problem URL, fetches the test cases for that problem, and saves them in the testCase folder.
 
-Users appreciate release notes as you update your extension.
+- Input files are stored as `input_X.txt`, and expected output files are stored as `output_X.txt`.
+- `LeetForces Run Solution` : Executes your solution against the fetched test cases and displays the results, showing whether your solution matches the expected output.
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- `Manage LeetCode Test Cases` : Provides tools to manage the test cases stored in the testCase folder. You can add, edit, or delete test cases as needed to improve your testing process.

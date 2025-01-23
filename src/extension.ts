@@ -120,7 +120,7 @@ const manageTestCasesCommand = vscode.commands.registerCommand('leetcode.manageT
     const writeSolutionCommand = vscode.commands.registerCommand("leetcode.writeSolution", async () => {
         try {
             // Prompt for problem name
-            const problemName = await vscode.window.showInputBox({ prompt: "Enter problem name or ID" });
+            const problemName = await vscode.window.showInputBox({ prompt: " Enter solution file name " });
             if (!problemName) {
                 vscode.window.showErrorMessage("Problem name or ID is required!");
                 return;

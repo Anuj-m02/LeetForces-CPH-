@@ -132,14 +132,14 @@ def execute_code(language, solution_file, test_case_dir):
             try:
         # Execute Python solution and compare output
                 result = execute_python(solution_file, inputs)
-                print(result)
+                #print(result)
 
                 if result is None:
                     print("Execution failed.")
                 else:
                     if isinstance(result,bool):
                         result_obj = "true" if result else "false"
-                        print(result_obj)
+                        #print(result_obj)
             # If result is a list, no need to strip
                     elif isinstance(result, (list,dict)):
                         result_obj = result  # No need to split or strip
@@ -148,14 +148,14 @@ def execute_code(language, solution_file, test_case_dir):
                     else:
                 # For string results, you can strip and process
                         result_obj = str(result).strip()
-                print(result_obj)
+                #print(result_obj)
                         
 
                 try :
                     expected_output_obj = ast.literal_eval(expected_output)
                 except Exception:
                     expected_output_obj = expected_output.strip()
-                print(expected_output_obj)
+                #print(expected_output_obj)
 
                 if expected_output_obj == result_obj:
                     print("Test Case PASSED")
@@ -228,7 +228,7 @@ def execute_code(language, solution_file, test_case_dir):
                             expected_output_obj = False
                     if isinstance(expected_output_obj,bool):
                         expected_output_obj = "1" if expected_output_obj else "0"
-                        print("yeah its a bool")
+                        #print("yeah its a bool")
                     print(expected_output_obj)
                     if isinstance(expected_output_obj, list):
                         if all(isinstance(item,list) and all(isinstance(subitem,int) for subitem in item) for item in expected_output_obj):
@@ -242,15 +242,15 @@ def execute_code(language, solution_file, test_case_dir):
                     if isinstance(result, (list,dict)):
                         if all(isinstance(item,list) for item in result):
                             result_obj = "\n".join(" ".join(str(v) for v in sublist) for sublist in result)
-                            print("i am here")
+                            #print("i am here")
                         else :
                             result_obj = result 
-                        print("i am if") # No need to split or strip
+                        #print("i am if") # No need to split or strip
                     else:
                 # For string results, you can strip and process
                         result_obj = str(result).strip()
-                        print("i am else")
-                    print(result_obj)
+                        #print("i am else")
+                    #print(result_obj)
                     if isinstance(expected_output_obj, str) and "\n" in expected_output_obj:
     # Transform result_obj string into multiline string format
     # Strip the outer brackets and split into sublists
@@ -261,7 +261,7 @@ def execute_code(language, solution_file, test_case_dir):
     
     # Join sublists with newline
                         result_obj = "\n".join(result_obj)
-                        print(result_obj)
+                        #print(result_obj)
                     elif isinstance(expected_output_obj,str) and "\n" not in expected_output_obj:
                         result_obj = result_obj.strip("[]")
 

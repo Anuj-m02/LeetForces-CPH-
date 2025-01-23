@@ -3,6 +3,7 @@
   "displayName": "LeetForces",
   "description": "Fetch test cases from LeetCode and enables users to test their solutions against the expected output in multiple programming languages.",
   "version": "0.0.1",
+  "publisher": "Anuj Singh",
   "engines": {
     "vscode": "^1.96.0"
   },
