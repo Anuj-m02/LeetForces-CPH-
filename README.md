@@ -51,6 +51,9 @@ npm install
 - Add Chromedriver to your system's PATH:
 - Move the downloaded Chromedriver file to a directory included in your system PATH.
 - Alternatively, keep it in your project directory and update its path in your scripts.
+- """""OR"""""
+- Get the chrome version from about 
+- `https://storage.googleapis.com/chrome-for-testing-public/<add your chrome version here>/win64/chromedriver-win64.zip`
 
 5. Set Up the Project
 - Clone the repository:

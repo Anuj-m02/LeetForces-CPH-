@@ -264,8 +264,6 @@ def execute_code(language, solution_file, test_case_dir):
                         #print(result_obj)
                     elif isinstance(expected_output_obj,str) and "\n" not in expected_output_obj:
                         result_obj = result_obj.strip("[]")
-
-
                     if str(expected_output_obj).strip() == str(result_obj).strip():
                         print("Test Case PASSED")
                     else:
