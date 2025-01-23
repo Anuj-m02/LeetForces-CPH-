@@ -78,7 +78,7 @@ cd Leetforces-CPH-
 - Use the following commands available in the Command Palette (Ctrl + Shift + P):
 1. Fetch LeetCode Test Cases
 - Open the desired LeetCode problem in your VS Code workspace.
-- Run the <mark>Fetch LeetCode Test Cases </mark> command from the Command Palette.
+- Run the `Fetch LeetCode Test Cases` command from the Command Palette.
 - Enter the LeetCode problem URL in the input prompt.
 - The extension will fetch the problem's test cases and save them in a testCase folder in your workspace directory.
 - Input Files: Saved as input_X.txt, where X is the test case number.
